@@ -15,14 +15,77 @@
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
+            <form id="year_form">
+                <label for="year_input">Year:</label>
+                <input type="text" id="year_input" name="year_input">
+                <input type="button" value="Go" onclick="update_graph1(document.getElementById('year_input').value)">
+            </form>
             <div id="graph1"></div>
+            <form id="region_form">
+                <label for="region_input">Region:</label>
+                <select id="region_input" name="region_input" onchange="update_graph2(this.value)">
+                    <option value="North America">North America</option>
+                    <option value="EU">EU</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Other">Other</option>
+                    <option value="Global">Global</option>
+                </select>
+            </form>
             <div id="graph2"></div><br/>
         </div>
         <div class="col-lg-6">
             <div id="graph3"></div>
         </div>
     </div>
+    <ol>
+        <li> 
+            The first graph shows the top 10 video games by sales in a user-given year. The second graph shows a pie chart of
+            the video game sales in a user-given region broken down by genre. The third graph shows the publisher with the greatest
+            median sales for each genre, excluding publishers with very few (< 5) games in that genre. These directly answer each
+            of the questions given.
+        </li>
+        <li>
+            <ol>
+                <li>
+                    It made creating complicated graphics easy.
+                </li>
+                <li>
+                    It provided routines for data manipulation, similar to pandas in Python.
+                </li>
+                <li>
+                    Working in a web browser allows for easy debugging and fast prototyping.
+                </li>
+            </ol>
+        </li>
+        <li>
+            <ol>
+                <li>
+                    It caused memory leaks in my browser which made me have to terminate it every once in a while.
+                </li>
+                <li>
+                    I get the sense that it stores and operates on data in a very inefficient way, making it a poor choice in case one wants
+                    to do a lot of processing.
+                </li>
+                <li>
+                    If you don't need very complicated figures then there are simpler tools available.
+                </li>
+            </ol>
+        </li>
+        <li>
+            The colors in the pie chart are hard to distinguish from each other so this would not be easy for someone who is poor at discriminating colors.
+            There is also no audio option so it is not accessible to people who cannot see. It would be possible to add audio functionality so that those
+            people could use the dashboard. Like the reading says however, using text is a good start since many computers are equipped with functionality
+            to convert text to audio. Similarly it should be possible to find better colors that work for the pie chart.
+        </li>
+        <li>
+            I could not find an extensible way to get 12+ colors for a pie chart that are easily distringuishable. This is because I figured hardcoding them
+            would not be a great way in case you wanted to add more genres in the future. Also when you get down to it there really aren't that many colors.
+        </li>
+    </ol>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="graph1.js"></script>
+    <script type="text/javascript" src="graph2.js"></script>
+    <script type="text/javascript" src="graph3.js"></script>
 </body>
 </html>
